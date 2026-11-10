@@ -478,6 +478,7 @@ img {
   flex: 1 0 0;
   min-width: 0;
   font-size: 11px;
+  text-transform: none;
 }
 
 .footer__nav {
@@ -729,15 +730,20 @@ img {
 .case-study__bento-card--1 {
   flex: 268 1 0%;
   aspect-ratio: 268 / 292;
-  background: #fff;
+  background: #fff; /* matches the video's own white background so the letterbox is invisible */
   overflow: hidden;
+  position: relative;
 }
 
+/* Absolutely positioned so the video's intrinsic size can't stretch the card;
+   it scales down to fit inside the card's fixed aspect ratio. */
 .case-study__bento-card--1 video {
+  position: absolute;
+  inset: 4%;
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
 }
 
 .case-study__bento-col {
