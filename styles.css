@@ -760,6 +760,27 @@ img {
   aspect-ratio: 208 / 142;
 }
 
+/* The packages, signatures and print videos are authored at their card's exact ratio
+   with their own grey background, so they fill the card; the card's radius clips their corners. */
+.case-study__bento-card--2a,
+.case-study__bento-card--2b,
+.case-study__bento-card--3 {
+  position: relative;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+
+.case-study__bento-card--2a video,
+.case-study__bento-card--2b video,
+.case-study__bento-card--3 video {
+  position: absolute;
+  inset: -1px; /* 1px overscan hides the video's dark corner antialiasing */
+  display: block;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  object-fit: contain;
+}
+
 .case-study__bento-card--3 {
   flex: 280 1 0%;
   aspect-ratio: 280 / 292;
